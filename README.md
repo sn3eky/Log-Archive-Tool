@@ -18,11 +18,11 @@ A step-by-step guide to get a development environment running.
 
    ```cd Log-Archive-Tool```
    
-3. ** Give permissions to the script file**
+3. **Give permissions to the script file**
    
    ``` chmod +x log-archive.sh ```
 
-4. Run the script
+4. **Run the script**
    
    ``` ./log-archive.sh ```
 
