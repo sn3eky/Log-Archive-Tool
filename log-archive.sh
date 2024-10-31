@@ -1,4 +1,13 @@
 #!/bin/bash
+check_command(){
+    if [ $? -eq 0 ]; then
+        echo "Done with success!"
+    else
+        echo "The program failed"
+        exit 1
+    fi
+}
+
 create_archive(){
     date=$(date '+%d%m%Y_%H%M%S')
     # Test if argument exist
@@ -12,13 +21,17 @@ create_archive(){
             if [ -d /var/log/new_logs ];
             then
                 mkdir -p /var/log/new_logs/$1
+                echo "Creating archive.."
                 tar czf /var/log/new_logs/$1/${1}_${date}.tar.gz $1
+                check_command
             else
+                echo "Creating folder.."
                 mkdir -p /var/log/new_logs
+                check_command
             fi
         else
             echo "Usage: $0 -c <log_directory>"
-            echo "Directory doesn't exist"
+            echo "Directory doesn't exist.. specify a correct one"
             exit 1
         fi
     fi
