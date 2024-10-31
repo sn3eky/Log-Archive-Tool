@@ -14,12 +14,12 @@ else
 
     if [ -d "$1" ];
     then
-        if [ -d ./new_logs/ ]
+        if [ -d /var/log/new_logs ]
         then
-            mkdir ./new_logs/$1
-            tar czf ./new_logs/$1/${1}_${date}.tar.gz $1
+            mkdir /var/log/new_logs/$1
+            tar czf /var/log/new_logs/$1/${1}_${date}.tar.gz $1
         else
-            mkdir ./new_logs/
+            mkdir /var/log/new_logs
         fi
     else
         echo "Usage: $0 <log_directory>"
